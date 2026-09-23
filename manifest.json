@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.lunanoir21.flare",
+  "name": "Flare",
+  "version": "1.0.0",
+  "author": "lunanoir21",
+  "license": "MIT",
+  "description": "AI usage notch for Omarchy — Claude Code, Codex, OpenCode, Cursor, Antigravity and Kiro limits and sessions in one edge-mounted notch.",
+  "kinds": ["service"],
+  "keepLoaded": true,
+  "entryPoints": { "service": "Service.qml" }
+}

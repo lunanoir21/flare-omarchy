@@ -36,17 +36,25 @@ omarchy plugin add https://github.com/lunanoir21/flare-omarchy.git --enable
 
 This installs the QML widget only. Flare also needs its own Rust binary —
 Omarchy's plugin loader doesn't build it for you, so install it once,
-separately:
+separately, pinned to the exact commit this wrapper vendors from (not the
+mutable default branch):
 
 ```bash
 git clone https://github.com/lunanoir21/flare-notch
-cd flare-notch && ./install.sh
+cd flare-notch
+git checkout ae9ce9e87ce454300c0a95ce60047681ec3ae41a
+./install.sh
 ```
 
 `install.sh` builds `flare` with Rust 1.85+ if you have it, otherwise
-downloads the prebuilt release, and puts it on `~/.local/bin`. The widget
-finds it there, on `PATH`, or wherever `flare.binary_path` points; without
-it, the notch stays empty and `flare doctor` explains why.
+downloads the prebuilt release and checks it against that release's
+published `.sha256` before installing, and puts it on `~/.local/bin`. The
+widget finds it there, on `PATH`, or wherever `flare.binary_path` points;
+without it, the notch stays empty and `flare doctor` explains why.
+
+To follow flare-notch's own tags instead of this fixed pin once you trust
+the upstream release process, use `git checkout v1.0.0` (or any later
+tag) in place of the commit above.
 
 ## Configure
 

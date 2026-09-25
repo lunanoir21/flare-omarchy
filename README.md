@@ -42,19 +42,23 @@ mutable default branch):
 ```bash
 git clone https://github.com/lunanoir21/flare-notch
 cd flare-notch
-git checkout ae9ce9e87ce454300c0a95ce60047681ec3ae41a
-./install.sh
+git checkout eed4543f05566d9b9f439571ffccd5f5220609fc
+FLARE_SHA256=6cc12b3da249fe8bc99e1bc78523b896ae55d87fb88710ce298cd2d4f5f82d0d ./install.sh
 ```
 
 `install.sh` builds `flare` with Rust 1.85+ if you have it, otherwise
-downloads the prebuilt release and checks it against that release's
-published `.sha256` before installing, and puts it on `~/.local/bin`. The
-widget finds it there, on `PATH`, or wherever `flare.binary_path` points;
-without it, the notch stays empty and `flare doctor` explains why.
+downloads the release matching this exact checkout (`v1.0.0`, still current
+at this pin) and checks it against `FLARE_SHA256` above — the digest of that
+release's own `flare-x86_64-linux.tar.gz`, recorded here rather than trusted
+from whatever `.sha256` the release page happens to publish at install time
+— before installing to `~/.local/bin`. The widget finds it there, on `PATH`,
+or wherever `flare.binary_path` points; without it, the notch stays empty
+and `flare doctor` explains why.
 
 To follow flare-notch's own tags instead of this fixed pin once you trust
-the upstream release process, use `git checkout v1.0.0` (or any later
-tag) in place of the commit above.
+the upstream release process, use `git checkout v1.0.0` (or any later tag)
+in place of the commit above, and drop `FLARE_SHA256` — `install.sh` then
+verifies against whatever `.sha256` that tag's own release publishes.
 
 ## Configure
 

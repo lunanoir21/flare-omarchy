@@ -216,6 +216,36 @@ Singleton {
     readonly property string noModels: tr ? "Bu sağlayıcı kayıtlarına modeli yazmıyor." : "This provider does not record the model in its logs."
     readonly property string perModelLimits: tr ? "her model grubunun kendi limiti var" : "each model group has its own limit"
 
+    // The first-run setup: the opening screens, then one screen per question.
+    readonly property string introWhatTitle: tr ? "Ekranının kenarında" : "On the edge of your screen"
+    readonly property string introWhatRing: tr ? "flare, bir AI kullanım notch'u: her sağlayıcı için bir halka — Claude Code, Codex, Cursor, OpenCode, Antigravity, Kiro." : "flare is an AI usage notch: one ring per provider — Claude Code, Codex, Cursor, OpenCode, Antigravity, Kiro."
+    readonly property string introWhatEdge: tr ? "Kullanmadığın sağlayıcı hiç çizilmez; yüzde, sıfırlanma ve bugünkü kullanım halkanın altında durur." : "A provider you don't use is never drawn; the percentage, the reset and today's use sit under its ring."
+    readonly property string introUseTitle: tr ? "Nasıl kullanılır" : "How to use it"
+    readonly property string introUseHover: tr ? "Halkanın üstüne gel: o sağlayıcının kartı açılır — kullanımı, sıfırlanması ve şu an açık olan oturumları." : "Hover a ring: that provider's card opens with its usage, when the limit resets and the sessions running right now."
+    readonly property string introUsePanel: tr ? "Kartın üstündeki ok'a tıkla: saat saat kullanım haritası, modeller ve haftanın oturumları." : "Click the arrow at the top of the card for the whole panel: hour by hour, the models, the week's sessions."
+    readonly property string introUseSettings: tr ? "Widget'a sağ tıkla, ya da uygulama menüsünden flare'i aç: ayarlar orada." : "Right-click the widget, or open flare from your app launcher, for the settings."
+    readonly property string introNumbersTitle: tr ? "Sayılar nereden geliyor" : "Where the numbers come from"
+    readonly property string introNumbersOfficial: tr ? "Official mod, her sağlayıcının kendi kullanım uç noktasını CLI'ının zaten sakladığı girişle okur; Codenotch'un yaptığı gibi." : "Official mode reads each provider's own usage endpoint with the sign-in its CLI already keeps, as Codenotch does."
+    readonly property string introNumbersLocal: tr ? "Local mod ağa hiç çıkmaz; yalnızca CLI'ların diske yazdığını okur." : "Local mode never touches the network; it reads only what the CLIs wrote to disk."
+    readonly property string introNumbersSafe: tr ? "Girişler okunur, yazılmaz ve hiçbir yere yazdırılmaz." : "Credentials are read, never written and never printed."
+    readonly property string languageStepHint: tr ? "flare bunu her yerde kullanır; sonra Görünüm'den değiştirebilirsin." : "flare uses this everywhere; you can change it later under Look."
+    readonly property string languageEnglish: tr ? "Her şey İngilizce kalır" : "Everything stays in English"
+    readonly property string languageTurkish: tr ? "Her şey Türkçe kalır" : "Everything stays in Turkish"
+    readonly property string providersStepTitle: tr ? "Hangi sağlayıcılar?" : "Which providers?"
+    readonly property string providersStepHint: tr ? "Kullanmadığın sağlayıcıları kapat: widget'tan tamamen kalkarlar. Sırayı ve renkleri sonra ayarlar sayfasından değiştirebilirsin." : "Switch off what you don't use and they leave the widget entirely. The order and the colours are yours to change later, in the settings."
+    readonly property string installed: tr ? "Bu makinede kurulu" : "Installed on this machine"
+    readonly property string onboardingTitle: tr ? "Kurulum" : "Setup"
+    readonly property string next: tr ? "İleri" : "Next"
+    readonly property string back: tr ? "Geri" : "Back"
+    readonly property string finish: tr ? "Bitti" : "Finish"
+    readonly property string runSetup: tr ? "Kurulumu tekrarla" : "Set up again"
+    readonly property string runSetupHint: tr ? "İlk çalıştırma kurulumu baştan: flare ne, hangi dil, hangi sağlayıcılar." : "The first-run setup from the top: what flare is, the language, and which providers to show."
+
+    // The first-run setup, in the order it shows.
+    function stepOf(here, total) {
+        return tr ? here + "/" + total + ". adım" : "Step " + here + " of " + total;
+    }
+
     function howItFilled(label) {
         return tr ? label + " nasıl doldu" : "How " + label.toLowerCase() + " filled";
     }

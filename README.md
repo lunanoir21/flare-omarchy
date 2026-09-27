@@ -16,7 +16,7 @@ with an hour-by-hour usage panel behind it.
 
 This repo is a thin wrapper. All of flare's actual behavior lives in
 [`flare-notch`](https://github.com/lunanoir21/flare-notch); the `flare/`
-directory here is a vendored, pinned copy of its `ui/` (currently `1.0.0`),
+directory here is a vendored, pinned copy of its `ui/` (currently `1.1.0`),
 and `Service.qml` is the one line Omarchy's plugin loader needs to start it.
 Nothing is developed here — to follow the project, read the release notes,
 or see what changed between vendored pins, go to the upstream repo.
@@ -42,12 +42,12 @@ mutable default branch):
 ```bash
 git clone https://github.com/lunanoir21/flare-notch
 cd flare-notch
-git checkout eed4543f05566d9b9f439571ffccd5f5220609fc
-FLARE_SHA256=6cc12b3da249fe8bc99e1bc78523b896ae55d87fb88710ce298cd2d4f5f82d0d ./install.sh
+git checkout ae2053a6f1bba24071e6c9fe1cc0ab22303b3bec
+FLARE_SHA256=ea23f684b92ccd3a9c3a4885cc22699d5b724bdada47433c2e2dfd25503f11c6 ./install.sh
 ```
 
 `install.sh` builds `flare` with Rust 1.85+ if you have it, otherwise
-downloads the release matching this exact checkout (`v1.0.0`, still current
+downloads the release matching this exact checkout (`v1.1.0`, still current
 at this pin) and checks it against `FLARE_SHA256` above — the digest of that
 release's own `flare-x86_64-linux.tar.gz`, recorded here rather than trusted
 from whatever `.sha256` the release page happens to publish at install time
@@ -56,7 +56,7 @@ or wherever `flare.binary_path` points; without it, the notch stays empty
 and `flare doctor` explains why.
 
 To follow flare-notch's own tags instead of this fixed pin once you trust
-the upstream release process, use `git checkout v1.0.0` (or any later tag)
+the upstream release process, use `git checkout v1.1.0` (or any later tag)
 in place of the commit above, and drop `FLARE_SHA256` — `install.sh` then
 verifies against whatever `.sha256` that tag's own release publishes.
 
